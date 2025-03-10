@@ -2,8 +2,7 @@
 // Your own functions here
 //---------------------------------
 
-
 function sayHello() {
-    //do something
+  //do something
 }
 //sayHello();    //invoke function
