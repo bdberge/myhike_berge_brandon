@@ -14,14 +14,10 @@ var uiConfig = {
       // Assign this user with the name and email provided.
       // Before this works, you must enable "Firestore" from the firebase console.
       // The Firestore rules must allow the user to write.
-      //------------------------------------------------------------------------------------------https://discord.com/channels/@me/1343720996812886026
+      //-------------------------------------------------------------------------------------------
       var user = authResult.user; // get the user object from the Firebase authentication database
-      if (authResult.additionalUserInfo.isNewUser) {
-        //if new user
-        db.collection("users")
-          .doc(user.uid)
-          .set({
-            //write to firestore. We are using the UID for the ID in users collection
+      if (authResult.additionalUserInfo.isNewUser) { //if new user
+            db.collection("users").doc(user.uid).set({ //write to firestore. We are using the UID for the ID in users collection
             name: user.displayName, //"users" collection
             email: user.email, //with authenticated user's ID (user.uid)
             country: "Canada", //optional default profile info
@@ -37,7 +33,7 @@ var uiConfig = {
       } else {
         return true;
       }
-      return false;
+        return false;
     },
     uiShown: function () {
       // The widget is rendered.
@@ -62,5 +58,5 @@ var uiConfig = {
   // Privacy policy url.
   privacyPolicyUrl: "<your-privacy-policy-url>",
 };
-
+// The start method will wait until the DOM is loaded.
 ui.start("#firebaseui-auth-container", uiConfig);
